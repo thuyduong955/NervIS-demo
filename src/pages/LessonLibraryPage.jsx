@@ -157,7 +157,7 @@ const ArticleCard = ({ title, description, imageUrl, rating }) => (
   </article>
 )
 
-export function LessonLibraryPage() {
+export function LessonLibraryPage({ onOpenLesson = () => {} }) {
   const [activeFilter, setActiveFilter] = useState('')
   const [search, setSearch] = useState('')
 
@@ -209,7 +209,11 @@ export function LessonLibraryPage() {
 
         <div className="lesson-library__grid">
           {filteredLessons.map((lesson) => (
-            <InterviewAiCard key={lesson.id} {...lesson} />
+            <InterviewAiCard
+              key={lesson.id}
+              {...lesson}
+              onOpen={() => onOpenLesson && onOpenLesson(lesson)}
+            />
           ))}
 
           {filteredLessons.length === 0 && (

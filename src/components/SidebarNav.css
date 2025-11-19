@@ -51,14 +51,14 @@
 .sidebar-nav__stack {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.1rem;
   align-items: center;
 }
 
 .sidebar-nav__footer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.1rem;
   align-items: center;
   padding-top: 1rem;
   margin-top: 0.5rem;

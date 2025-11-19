@@ -49,6 +49,7 @@ export function InterviewAiCard({
   duration,
   difficulty,
   tags = [],
+  onOpen = () => {},
 }) {
   const roundedRating = Math.round(rating * 10) / 10
   const stars = Array.from({ length: 5 }, (_, index) => (
@@ -88,7 +89,12 @@ export function InterviewAiCard({
           <strong>{roundedRating.toFixed(1)}</strong>
           {typeof reviewCount === 'number' && <span>({reviewCount} đánh giá)</span>}
         </div>
-        <button className="interview-card__play" type="button" aria-label="Xem nội dung">
+        <button
+          className="interview-card__play"
+          type="button"
+          aria-label="Xem nội dung"
+          onClick={onOpen}
+        >
           <PlayIcon />
         </button>
       </div>

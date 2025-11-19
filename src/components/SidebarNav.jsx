@@ -40,7 +40,7 @@ function Icon({ name, active }) {
   return <IconComponent aria-hidden="true" className={`sidebar-icon ${active ? 'is-active' : ''}`} />
 }
 
-export function SidebarNav({ activeId = 'library' }) {
+export function SidebarNav({ activeId = 'library', onChange }) {
   return (
     <aside className="sidebar-nav" aria-label="Thanh tác vụ">
       <div className="sidebar-nav__top">
@@ -59,6 +59,10 @@ export function SidebarNav({ activeId = 'library' }) {
                 type="button"
                 aria-label={item.label}
                 className={`sidebar-nav__item ${isActive ? 'is-active' : ''}`}
+                onClick={() => {
+                  if (onChange) onChange(item.id)
+                }}
+                aria-pressed={isActive}
               >
                 <Icon name={item.icon} active={isActive} />
               </button>
@@ -74,6 +78,9 @@ export function SidebarNav({ activeId = 'library' }) {
             type="button"
             aria-label={item.label}
             className={`sidebar-nav__item sidebar-nav__item--small ${item.tone === 'danger' ? 'is-danger' : ''}`}
+            onClick={() => {
+              if (onChange) onChange(item.id)
+            }}
           >
             <Icon name={item.icon} />
           </button>
